@@ -1,0 +1,13 @@
+fastapi
+pydantic[email]
+asyncpg
+alembic
+databases
+psycopg2-binary
+redis
+aioredis==2.0.0a1
+fastapi-cache2[redis]
+passlib
+bcrypt
+password-validator
+python-dotenv
