@@ -14,7 +14,7 @@ class Users(Base):
     phone: str = Column(String, nullable=False, unique=True)  # уникальное  и НЕ МОЖЕТ быть пустым
     email: str = Column(String, nullable=True, unique=True)  # уникальное  и МОЖЕТ быть пустым
     gender = Column(String)
-    swipes = relationship("Swipe", back_populates="user")
+    swipes = relationship('Swipe', back_populates="user")
     hashed_password: str = Column(String, nullable=True)
     register_data: datetime.utcnow = Column(TIMESTAMP, default=datetime.utcnow())  # дата регистрации пользователя
     is_active: bool = Column(Boolean, default=True, nullable=False)
