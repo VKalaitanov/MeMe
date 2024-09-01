@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from .models import Swipe
+from .models import Swipes
 from .schemas import SwipeCreate
 from oauth.models import Users
 
@@ -11,7 +11,7 @@ async def handle_swipe(swipe: SwipeCreate, session: AsyncSession):
     target_user = await session.execute(select(Users).where(Users.id == swipe.target_user_id))
 
     if user and target_user:
-        new_swipe = Swipe(user_id=swipe.user_id, target_user_id=swipe.target_user_id)
+        new_swipe = Swipes(user_id=swipe.user_id, target_user_id=swipe.target_user_id)
         session.add(new_swipe)
         await session.commit()
         return {"status": "swiped successfully"}
