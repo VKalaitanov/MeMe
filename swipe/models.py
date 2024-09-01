@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 
-from oauth.models import Base
+from engine_db import Base
 
 
 class Swipes(Base):

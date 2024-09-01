@@ -1,8 +1,8 @@
 from datetime import datetime
-from sqlalchemy import Column, String, Integer, Boolean, TIMESTAMP, ForeignKey
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy import Column, String, Integer, Boolean, TIMESTAMP
+from sqlalchemy.orm import relationship
 
-Base = declarative_base()
+from engine_db import Base
 
 
 class Users(Base):
@@ -26,5 +26,3 @@ class Users(Base):
         foreign_keys='Swipes.user_id',
         back_populates='user'
     )
-
-

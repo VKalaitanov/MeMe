@@ -54,7 +54,6 @@ async def register_user(user: RegisterUser,
     if await exists_user_by_phone(user.phone, session):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                             detail="A user with the same phone number already exists")
-
     phone = transformation_phone(user.phone)
     hashed_password = Hasher.get_password_hash(user.password_1)
     await add_user_in_database(user.username, phone, hashed_password, session)
